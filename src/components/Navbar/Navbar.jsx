@@ -4,9 +4,25 @@ import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import logoImg from "../../assets/Images/logo share meals.png";
+import "./Navbar.css";
 
 const Navbar = () => {
   const location = useLocation();
+  const links = (
+    <>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/availableFoods">Available Foods</NavLink>
+
+      {user && (
+        <div className="flex flex-col gap-2">
+          <NavLink to="/addFood">Add Food</NavLink>
+          <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
+          <NavLink to="/myFoodRequest">My Food Request</NavLink>
+        </div>
+      )}
+    </>
+  );
+
   useEffect(() => {
     const title = {
       "/": "Home || HeroMeals",
@@ -56,16 +72,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-2 z-50 text-base "
             >
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/availableFoods">Available Foods</NavLink>
-
-              {user && (
-                <div className="flex flex-col gap-2">
-                  <NavLink to="/addFood">Add Food</NavLink>
-                  <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
-                  <NavLink to="/myFoodRequest">My Food Request</NavLink>
-                </div>
-              )}
+              {links}
             </ul>
           </div>
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
@@ -73,18 +80,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-8 text-base">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/availableFoods">Available Foods</NavLink>
-
-            {user && (
-              <div className="flex items-center gap-8">
-                <NavLink to="/addFood">Add Food</NavLink>
-                <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
-                <NavLink to="/myFoodRequest">My Food Request</NavLink>
-              </div>
-            )}
-          </ul>
+          <ul className="menu menu-horizontal px-1 gap-8 text-base">{links}</ul>
         </div>
         <div className="navbar-end gap-1 lg:gap-2 items-center">
           <div>
@@ -113,12 +109,12 @@ const Navbar = () => {
                   >
                     Login
                   </Link>
-
+                  <span>or</span>
                   <Link
-                    to="/signup"
+                    to="/register"
                     className="py-2 px-2 lg:px-5 text-teal-600 hover:text-white font-bold text-sm lg:text-lg rounded-lg border-3 border-teal-600 hover:bg-teal-600 transition"
                   >
-                    Signup
+                    Register
                   </Link>
                 </div>
               )}
