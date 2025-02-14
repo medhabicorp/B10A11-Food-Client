@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   createUserWithEmailAndPassword,
@@ -72,6 +72,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
           });
       }
+      console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
     });
     return () => {
       connection();
@@ -101,6 +102,8 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-AuthProvider.propTypes = {};
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default AuthProvider;
