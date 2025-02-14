@@ -1,10 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import Banner from "../../components/Banner/banner";
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Banner />
     </div>
   );
 };
