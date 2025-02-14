@@ -7,7 +7,13 @@ import logoImg from "../../assets/Images/logo share meals.png";
 import "./Navbar.css";
 
 const Navbar = () => {
+  // AuthContext
+  const { user, logOut } = useContext(AuthContext);
+
+  // location
   const location = useLocation();
+
+  // Nav links
   const links = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -23,25 +29,27 @@ const Navbar = () => {
     </>
   );
 
+  // Page Titles
   useEffect(() => {
     const title = {
-      "/": "Home || HeroMeals",
-      "/availableFoods": "Available_Foods || HeroMeals",
-      "/addFood": "Add_Food || HeroMeals",
-      "/manageMyFoods": "Manage_My_Foods || HeroMeals",
-      "/myFoodRequest": "My_Food_Request || HeroMeals",
-      "/login": "Login || HeroMeals",
-      "/signup": "Signup || HeroMeals",
+      "/": "Home | HeroMeals",
+      "/availableFoods": "Available_Foods | HeroMeals",
+      "/addFood": "Add_Food | HeroMeals",
+      "/manageMyFoods": "Manage_My_Foods | HeroMeals",
+      "/myFoodRequest": "My_Food_Request | HeroMeals",
+      "/login": "Login | HeroMeals",
+      "/signup": "Signup | HeroMeals",
     };
     if (matchPath("/food/:id", location.pathname)) {
-      title[location.pathname] = "Food_Details || HeroMeals";
+      title[location.pathname] = "Food_Details | HeroMeals";
     }
     if (matchPath("/updateFoods/:id", location.pathname)) {
-      title[location.pathname] = "Update_Food || HeroMeals";
+      title[location.pathname] = "Update_Food | HeroMeals";
     }
-    document.title = title[location.pathname] || "HeroMeals";
+    document.title = title[location.pathname] | "HeroMeals";
   }, [location]);
-  const { user, logOut } = useContext(AuthContext);
+
+  // handle Log out
   const handleLogOut = () => {
     logOut().then(() => {
       toast.success("Log_out successfully");
@@ -80,7 +88,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-8 text-base">{links}</ul>
+          <ul className="menu menu-horizontal px-1 gap-8 text-md font-bold">
+            {links}
+          </ul>
         </div>
         <div className="navbar-end gap-1 lg:gap-2 items-center">
           <div>
