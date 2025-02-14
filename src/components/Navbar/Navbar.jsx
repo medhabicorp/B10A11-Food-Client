@@ -18,14 +18,9 @@ const Navbar = () => {
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/availableFoods">Available Foods</NavLink>
-
-      {user && (
-        <div className="flex flex-col gap-2">
-          <NavLink to="/addFood">Add Food</NavLink>
-          <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
-          <NavLink to="/myFoodRequest">My Food Request</NavLink>
-        </div>
-      )}
+      {user && <NavLink to="/addFood">Add Food</NavLink>}
+      {user && <NavLink to="/manageMyFoods">Manage My Foods</NavLink>}
+      {user && <NavLink to="/myFoodRequest">My Food Request</NavLink>}
     </>
   );
 
@@ -78,7 +73,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-2 z-50 text-base "
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-2 z-50 text-md font-semibold"
             >
               {links}
             </ul>
@@ -88,7 +83,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-8 text-md font-bold">
+          <ul className="menu menu-horizontal px-1 gap-8 text-md font-semibold">
             {links}
           </ul>
         </div>
@@ -106,23 +101,23 @@ const Navbar = () => {
                     ></img>
                   </div>
                   <button onClick={handleLogOut}>
-                    <Link className="py-2 px-2 lg:px-5 text-white text-sm lg:text-lg rounded-lg bg-teal-600 hover:teal-500 transition">
+                    <Link className="py-2 px-2 lg:px-5 text-white text-sm lg:text-lg rounded-lg bg-orange-600 hover:orange-500 transition">
                       LogOut
                     </Link>
                   </button>
                 </div>
               ) : (
-                <div className="flex items-center gap-1 lg:gap-4">
+                <div className="flex items-center gap-1 lg:gap-2">
                   <Link
                     to="/login"
-                    className="py-2 px-2 lg:px-5 text-teal-600 hover:text-white font-bold text-sm lg:text-lg rounded-lg border-3 border-teal-600 hover:bg-teal-600 transition"
+                    className="py-2 px-2 lg:px-5 text-orange-600 hover:text-white font-bold text-sm lg:text-lg rounded-lg border-3 border-orange-600 hover:bg-orange-600 transition"
                   >
                     Login
                   </Link>
                   <span>or</span>
                   <Link
                     to="/register"
-                    className="py-2 px-2 lg:px-5 text-teal-600 hover:text-white font-bold text-sm lg:text-lg rounded-lg border-3 border-teal-600 hover:bg-teal-600 transition"
+                    className="py-2 px-2 lg:px-5 text-orange-600 hover:text-white font-bold text-sm lg:text-lg rounded-lg border-3 border-orange-600 hover:bg-orange-600 transition"
                   >
                     Register
                   </Link>
