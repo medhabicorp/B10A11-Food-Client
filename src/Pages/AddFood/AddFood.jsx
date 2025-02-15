@@ -204,7 +204,7 @@ const AddFood = () => {
               <div className="flex flex-col lg:flex-row items-center justify-center space-x-4 mt-6 bg-gray-50 p-4 rounded-lg shadow-md w-full">
                 <img
                   src={user?.photoURL}
-                  alt="Donor Profile"
+                  alt="Donator Profile"
                   className="w-16 h-16 rounded-full border-2 border-orange-500 shadow-lg"
                 />
                 <div>

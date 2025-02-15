@@ -76,10 +76,10 @@ const DetailsPage = () => {
                 </p>
               </div>
 
-              {/* Donor Information */}
+              {/* Donator Information */}
               <div className="bg-orange-50 p-6 rounded-lg shadow-md flex flex-col items-start space-y-4">
                 <h3 className="text-lg text-center font-bold text-orange-600">
-                  Donor Information
+                  Donator Information
                 </h3>
                 <div className="flex gap-2 items-center">
                   <img
@@ -116,9 +116,9 @@ const DetailsPage = () => {
 
       <RequestModal
         isOpen={isModalOpen}
-        food={food}
+        food={{ ...food, Donator: food.donator }}
         onClose={() => setIsModalOpen(false)}
-      ></RequestModal>
+      />
     </div>
   );
 };
