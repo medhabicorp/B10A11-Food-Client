@@ -10,7 +10,7 @@ const PrivateRoutes = ({ children }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <FadeLoader color="#2df1f7" loading={true} />
+        <FadeLoader color="#ff3131" loading={true} />
       </div>
     );
   }

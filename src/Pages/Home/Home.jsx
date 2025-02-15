@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Banner from "../../components/Banner/banner";
 import FeaturedFoods from "../../components/FeaturedFoods/FeaturedFoods";
 

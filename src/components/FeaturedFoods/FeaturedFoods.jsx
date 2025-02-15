@@ -25,8 +25,8 @@ const FeaturedFoods = () => {
   }
 
   return (
-    <div className="w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto pt-16 pb-14">
-      <h2 className="text-2xl lg:text-4xl font-semibold text-center text-orange-600">
+    <div className="w-[90%] xl:container mx-auto pt-16 pb-14">
+      <h2 className="text-2xl font-semibold text-center text-orange-600 border-2 border-orange-600 rounded-xl p-2 w-[90%] mx-auto">
         Featured Foods
       </h2>
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
