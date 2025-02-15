@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Banner from "../../components/Banner/banner";
 import FeaturedFoods from "../../components/FeaturedFoods/FeaturedFoods";
+import Volunteers from "../../components/Volunteers/Volunteers";
+import OurApp from "../../components/OurApp/OurApp";
 
 const Home = () => {
   return (
@@ -15,6 +17,12 @@ const Home = () => {
             Show All
           </button>
         </Link>
+      </div>
+      <div>
+        <Volunteers />
+      </div>
+      <div className="">
+        <OurApp />
       </div>
     </div>
   );
