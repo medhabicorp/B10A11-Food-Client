@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const MainLayouts = () => {
   return (
@@ -11,6 +12,9 @@ const MainLayouts = () => {
       </div>
       <div>
         <Outlet />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
