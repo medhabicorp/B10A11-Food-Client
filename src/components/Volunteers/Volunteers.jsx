@@ -32,7 +32,7 @@ const Volunteers = () => {
       </p>
 
       <div className="bg-[#2f2f2f] text-white mt-6 p-6 rounded-lg w-full max-w-4xl flex justify-between items-center">
-        <h3 className="text-xl font-semibold">Let's join us!</h3>
+        <h3 className="text-xl font-semibold">Join Us!</h3>
         <div className="text-right">
           <p className="text-sm">Contact Us</p>
           <p className="text-sm">+123-456-7890</p>

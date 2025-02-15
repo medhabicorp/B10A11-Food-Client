@@ -41,7 +41,7 @@ const Navbar = () => {
     if (matchPath("/updateFoods/:id", location.pathname)) {
       title[location.pathname] = "Update_Food | HeroMeals";
     }
-    document.title = title[location.pathname] | "HeroMeals";
+    document.title = title[location.pathname] || "HeroMeals";
   }, [location]);
 
   // handle Log out
@@ -97,8 +97,9 @@ const Navbar = () => {
                   <div className="tooltip" data-tip={`${user?.displayName}`}>
                     <img
                       className="w-7 lg:w-10 h-7 lg:h-10 object-cover rounded-full"
-                      src={user?.photoURL}
-                    ></img>
+                      src={user?.photoURL || "https://via.placeholder.com/40"}
+                      alt="Profile"
+                    />
                   </div>
                   <button onClick={handleLogOut}>
                     <Link className="py-2 px-2 lg:px-5 text-white text-sm lg:text-lg rounded-lg bg-orange-600 hover:orange-500 transition">

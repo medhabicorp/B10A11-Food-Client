@@ -21,37 +21,65 @@ const AuthProvider = ({ children }) => {
   const [refetch, setRefetch] = useState();
   const googleProvider = new GoogleAuthProvider();
 
-  // google Login
+  // Google Login
   const loginInWithGoogle = () => {
-    return signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider)
+      .then(async (result) => {
+        const user = result.user;
+        if (user) {
+          // Ensure user profile gets updated
+          await updateProfile(user, {
+            displayName: user.displayName || "User",
+            photoURL: user.photoURL || "https://via.placeholder.com/40",
+          });
+
+          // Set user state properly
+          setUser({
+            ...user,
+            displayName: user.displayName,
+            photoURL: user.photoURL || "https://via.placeholder.com/40",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Google Sign-in Error:", error);
+      });
   };
 
-  //  Register with Email
+  // Register with Email
   const registerWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Login With Email and password
+  // Login With Email and Password
   const loginWithEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Update profile
+  // Update Profile
   const updateUserProfile = (profile) => {
-    return updateProfile(auth.currentUser, profile);
+    return updateProfile(auth.currentUser, profile).then(() => {
+      setUser({ ...auth.currentUser, ...profile });
+    });
   };
 
-  // log Out
+  // Logout
   const logOut = () => {
-    return signOut(auth);
+    return signOut(auth).then(() => {
+      setUser(null);
+    });
   };
 
-  // useEffect
+  // UseEffect to Track Auth Changes
   useEffect(() => {
     const connection = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      if (currentUser?.email) {
-        const users = { email: currentUser?.email };
+      if (currentUser) {
+        setUser({
+          ...currentUser,
+          photoURL: currentUser.photoURL || "https://via.placeholder.com/40",
+        });
+
+        const users = { email: currentUser.email };
         axios
           .post(`${import.meta.env.VITE_BASE_URL}/jwt`, users, {
             withCredentials: true,
@@ -61,6 +89,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
           });
       } else {
+        setUser(null);
         axios
           .post(
             `${import.meta.env.VITE_BASE_URL}/logout`,
@@ -72,15 +101,12 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
           });
       }
-      console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
     });
-    return () => {
-      connection();
-      // setUser(null);
-    };
+
+    return () => connection();
   }, [refetch]);
 
-  // auth Info
+  // Auth Info
   const authInfo = {
     user,
     setRefetch,
@@ -96,9 +122,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <div>
-      <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-    </div>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import deliveryImg from "../../assets/Images/deliveryImg.jpg";
 import playStore from "../../assets/Images/playStore.png";
 import appleStore from "../../assets/Images/appleStore.png";
