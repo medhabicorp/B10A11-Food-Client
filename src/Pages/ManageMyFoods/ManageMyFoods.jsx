@@ -53,7 +53,7 @@ const ManageMyFoods = () => {
           <div className="overflow-x-auto">
             <table className="table-auto w-full text-left">
               <thead>
-                <tr className="bg-orange-800 text-white">
+                <tr className="bg-gray-700 text-white">
                   <th className="px-4 py-2">Image</th>
                   <th className="px-4 py-2">Food Name</th>
                   <th className="px-4 py-2">Quantity</th>
@@ -85,7 +85,7 @@ const ManageMyFoods = () => {
                     </td>
                     <td className="px-4 py-5 flex items-end space-x-3">
                       <Link to={`/updateFoods/${food._id}`}>
-                        <button className="text-white bg-orange-500 hover:bg-orange-600 px-3 py-1 lg:py-2 rounded-md flex items-center cursor-pointer">
+                        <button className="text-white bg-green-800 hover:bg-green-600 px-3 py-1 lg:py-2 rounded-md flex items-center cursor-pointer">
                           <FaEdit className="mr-2" /> Update
                         </button>
                       </Link>

@@ -20,7 +20,7 @@ const MyFoodRequest = () => {
   return (
     <div>
       <div className="w-11/12 md:w-11/12 lg:11/12  xl:container mx-auto pb-20 pt-10">
-        <h2 className="text-2xl lg:text-3xl font-bold text-center mb-6 text-teal-600">
+        <h2 className="text-2xl lg:text-3xl font-bold text-center mb-6 text-orange-600">
           My Food Requests
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -46,7 +46,7 @@ const MyFoodRequest = () => {
                 {food?.pickup_location}
               </p>
               <p className="text-sm text-gray-600 mb-1">
-                <span className="font-bold">Expire Date:</span>{" "}
+                <span className="font-bold">Expired Date:</span>{" "}
                 {food?.expire_date}
               </p>
               <p className="text-sm text-gray-600 mb-1">
@@ -57,7 +57,7 @@ const MyFoodRequest = () => {
                 <span className="font-bold">Additional Notes:</span>{" "}
                 {food?.additional_notes}
               </p>
-              <div className="absolute top-2 right-2 bg-teal-100 text-teal-600 text-xs px-2 py-1 rounded-full">
+              <div className="absolute top-2 right-2 bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded-full">
                 {food?.status}
               </div>
             </div>

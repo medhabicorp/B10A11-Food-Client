@@ -13,7 +13,8 @@ const AvailableFoods = () => {
   useEffect(() => {
     axios
       .get(
-        `${
+        `
+        ${
           import.meta.env.VITE_BASE_URL
         }/all-foods?available=true&sort=${sort}&search=${search}`
       )
@@ -21,11 +22,7 @@ const AvailableFoods = () => {
         setFoods(response.data);
       })
       .catch((error) => console.error("Error fetching foods:", error));
-  }, [sort, search]); // Ensure sorting works when sort state changes
-
-  const toggleLayout = (cols) => {
-    setLayout(cols);
-  };
+  }, [sort, search]);
 
   return (
     <div className="pb-20 pt-10 w-[90%] mx-auto">
@@ -72,7 +69,7 @@ const AvailableFoods = () => {
                 className={`w-12 h-12 ${
                   layout === 3 ? "opacity-100" : "opacity-50"
                 }`}
-                onClick={() => toggleLayout(3)}
+                onClick={() => setLayout(3)}
               />
               <img
                 src={TwoGridCol}
@@ -80,13 +77,17 @@ const AvailableFoods = () => {
                 className={`w-8 h-8 ${
                   layout === 2 ? "opacity-100" : "opacity-50"
                 }`}
-                onClick={() => toggleLayout(2)}
+                onClick={() => setLayout(2)}
               />
             </div>
           </div>
         </div>
 
-        <div className={`grid sm:grid-cols-1 lg:grid-cols-${layout} gap-6`}>
+        <div
+          className={`grid sm:grid-cols-1 ${
+            layout === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+          } gap-6`}
+        >
           {foods?.map((food) => (
             <div
               key={food._id}
