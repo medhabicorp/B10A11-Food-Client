@@ -5,6 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 import { IoEyeSharp } from "react-icons/io5";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Lottie from "lottie-react";
+import loginAnimation from "../../assets/login.json";
 
 const Login = () => {
   const [signToggle, setSignToggle] = useState(false);
@@ -14,6 +16,7 @@ const Login = () => {
   if (user) {
     return <Navigate to="/"></Navigate>;
   }
+
   const handleLoginForm = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -28,9 +31,11 @@ const Login = () => {
         toast.error("Invalid Credential Email/Password");
       });
   };
+
   const handleToggleSignBtn = () => {
     setSignToggle(!signToggle);
   };
+
   const handleLoginGoogle = () => {
     loginInWithGoogle()
       .then(() => {
@@ -41,15 +46,22 @@ const Login = () => {
         toast.error("Google Login failed please try again");
       });
   };
+
   return (
-    <div>
-      <div className="py-20 px-8 bg-gray-100 flex items-center justify-center">
-        <div className="bg-white shadow-md rounded-lg p-8 max-w-lg w-[90%]">
+    <div className="py-20 px-8 bg-gray-100 flex justify-center items-center">
+      <div className="bg-white shadow-md rounded-lg p-8 w-[90%] max-w-3xl flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8">
+        {/* Lottie Animation - Appears Above on Small Screens and Right on Large Screens */}
+        <div className="w-full lg:w-1/2">
+          <Lottie animationData={loginAnimation} loop autoplay />
+        </div>
+
+        {/* Login Form */}
+        <div className="w-full lg:w-1/2">
           <h2 className="text-2xl font-bold text-center text-orange-600 mb-6">
             Login Now!
           </h2>
 
-          <form className="" onSubmit={handleLoginForm}>
+          <form onSubmit={handleLoginForm}>
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -85,7 +97,6 @@ const Login = () => {
                 className="absolute -top-1"
                 onClick={handleToggleSignBtn}
               >
-                {" "}
                 {signToggle ? (
                   <FaEyeSlash className="absolute right-2 top-12 text-xl" />
                 ) : (
@@ -101,6 +112,7 @@ const Login = () => {
               Login
             </button>
           </form>
+
           <div className="divider text-gray-600 mt-4">Or login with </div>
 
           <div className="text-center mt-4">
@@ -111,6 +123,7 @@ const Login = () => {
               <FcGoogle className="text-xl" /> Google
             </button>
           </div>
+
           <p className="text-center text-sm mt-4 text-gray-600">
             Don’t have an account?{" "}
             <Link
