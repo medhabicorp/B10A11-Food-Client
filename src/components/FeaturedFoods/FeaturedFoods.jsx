@@ -25,7 +25,7 @@ const FeaturedFoods = () => {
   }
 
   return (
-    <div className="w-[90%] xl:container mx-auto pt-16 pb-14">
+    <div className="xl:container mx-auto pt-16 pb-14">
       <h2 className="text-2xl font-semibold text-center text-orange-600 border-2 border-orange-600 rounded-xl p-2 w-[90%] mx-auto">
         Featured Foods
       </h2>
@@ -33,7 +33,7 @@ const FeaturedFoods = () => {
         {data?.map((food) => (
           <div
             key={food._id}
-            className="rounded shadow-md p-4 flex flex-col  hover:shadow-xl  bg-white  overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out"
+            className="rounded shadow-md p-4 flex flex-col hover:shadow-xl transition-shadow"
           >
             <img
               src={food?.foodImg}
@@ -42,21 +42,25 @@ const FeaturedFoods = () => {
             />
 
             <div className="mb-2 gap-10 flex justify-between items-center">
-              <h2 className="text-lg lg:text-xl font-semibold ">
+              <h2 className="text-lg lg:text-xl font-semibold">
                 {food?.foodName}
               </h2>
               <p className="text-green-500 bg-green-100 px-3 text-sm rounded-full">
                 {food?.status}
               </p>
             </div>
-            <p className="text-gray-600 mb-1">Quantity: {food?.foodQuantity}</p>
-            <p className="text-gray-600 mb-4">
-              Expire Date: {food?.expireDate}
-            </p>
+            <div className="flex flex-col lg:flex-row justify-between items-center">
+              <p className="text-gray-600 mb-1">
+                Quantity: {food?.foodQuantity}
+              </p>
+              <p className="text-gray-600 mb-4">
+                Expired Date: {food?.expireDate}
+              </p>
+            </div>
 
-            <div className="flex">
+            <div>
               <Link to={`/food/${food?._id}`}>
-                <button className="mt-auto bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                <button className="mt-auto bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 w-full cursor-pointer">
                   View Details
                 </button>
               </Link>
