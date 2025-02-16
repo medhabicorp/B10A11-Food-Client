@@ -58,15 +58,15 @@ const RequestModal = ({ isOpen, onClose, food }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
+          className="absolute top-3 right-3 text-orange-600 hover:text-orange-800 cursor-pointer font-extrabold text-2xl"
         >
-          ✖
+          X
         </button>
 
         {/* Modal Content */}
         <div className="p-6 max-h-[90vh] overflow-y-auto">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
-            Request Food
+          <h2 className="text-xl font-bold text-orange-600 mb-4 text-center">
+            Request For Food
           </h2>
 
           <form onSubmit={handleRequestFood}>
@@ -80,7 +80,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 value={foodName}
                 name="food_name"
                 readOnly
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -94,7 +94,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 value={foodImg}
                 name="food_image"
                 readOnly
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -108,7 +108,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 value={_id}
                 name="food_id"
                 readOnly
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -123,7 +123,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                   value={Donator.donatorName || "Not Available"}
                   name="Donator_name"
                   readOnly
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -135,13 +135,13 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                   value={Donator.donatorEmail || "Not Available"}
                   name="Donator_email"
                   readOnly
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* User Email */}
-            <div>
+            <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
                 User Email
               </label>
@@ -153,6 +153,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
+
             {/* Pickup Location */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
@@ -163,22 +164,22 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 value={location}
                 name="pickup_location"
                 readOnly
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                className="w-full mt-1 p-2 border border-gray-300 focus:outline-none rounded-lg focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
-            {/* Expire and Request Dates */}
+            {/* Expired and Request Dates */}
             <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Expire Date
+                  Expired Date
                 </label>
                 <input
                   type="text"
                   value={expireDate}
                   name="expire_date"
                   readOnly
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -190,7 +191,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                   value={currentDate}
                   name="request_date"
                   readOnly
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -205,7 +206,7 @@ const RequestModal = ({ isOpen, onClose, food }) => {
                 name="additional_notes"
                 defaultValue={additionalNotes}
                 placeholder="Enter any additional notes here..."
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               ></textarea>
             </div>
 

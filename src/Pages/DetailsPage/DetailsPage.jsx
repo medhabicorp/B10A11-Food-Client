@@ -30,7 +30,7 @@ const DetailsPage = () => {
   return (
     <div className="pt-10 pb-20">
       <div className="w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
-        <div className="max-w-[90%] flex flex-col lg:flex-row justify-center items-center gap-6 mx-auto bg-white shadow-md rounded-lg overflow-hidden ">
+        <div className="max-w-[90%] flex flex-col lg:flex-row justify-center items-center gap-4 mx-auto bg-white shadow-md rounded-lg overflow-hidden ">
           {/* Food Image */}
           <div className="relative w-full h-72 lg:h-96">
             <img
@@ -41,14 +41,14 @@ const DetailsPage = () => {
           </div>
 
           {/* Details Section */}
-          <div className="p-8">
+          <div className="p-8 w-full">
             <h2 className="text-2xl font-bold text-orange-700 mb-6">
               {foodName}
             </h2>
             <div className=" flex flex-col space-y-4">
-              {/* Left Column: Food Details */}
+              {/* Food Details */}
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col lg:flex-row justify-between items-start space-y-2">
                   <p>
                     <span className="font-semibold ">Quantity:</span>{" "}
                     {foodQuantity}
@@ -60,7 +60,7 @@ const DetailsPage = () => {
                     </span>
                   </p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col lg:flex-row justify-between items-start space-y-2">
                   <p>
                     <span className="font-semibold ">Pickup Location:</span>{" "}
                     {location}
