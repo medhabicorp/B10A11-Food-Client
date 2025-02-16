@@ -21,7 +21,7 @@ const OurApp = () => {
       </div>
       <div className="max-w-lg text-white w-full md:w-1/2">
         <h2 className="text-4xl font-bold mb-4">
-          Download Our Food Sharing App !
+          Download Our Food Sharing "HERO MEALS" App !
         </h2>
         <p className="text-lg mb-6">
           Experience the ultimate convenience in food Sharing with our app!
