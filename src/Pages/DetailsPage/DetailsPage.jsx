@@ -30,7 +30,7 @@ const DetailsPage = () => {
   return (
     <div className="pt-10 pb-20">
       <div className="w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
-        <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden ">
+        <div className="max-w-[90%] flex flex-col lg:flex-row justify-center items-center gap-6 mx-auto bg-white shadow-md rounded-lg overflow-hidden ">
           {/* Food Image */}
           <div className="relative w-full h-72 lg:h-96">
             <img
