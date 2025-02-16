@@ -102,8 +102,8 @@ const Navbar = () => {
                     />
                   </div>
                   <button onClick={handleLogOut}>
-                    <Link className="py-2 px-2 lg:px-5 text-white text-sm lg:text-lg rounded-lg bg-orange-600 hover:orange-500 transition">
-                      LogOut
+                    <Link className="py-2 px-2 lg:px-5 text-white text-sm lg:text-lg rounded-lg bg-orange-600 hover:bg-orange-500 transition">
+                      Log Out
                     </Link>
                   </button>
                 </div>

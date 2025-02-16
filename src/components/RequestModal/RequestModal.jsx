@@ -213,9 +213,9 @@ const RequestModal = ({ isOpen, onClose, food }) => {
             {/* Request Button */}
             <button
               type="submit"
-              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-300"
+              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-300 cursor-pointer"
             >
-              Request Food
+              Request For Food
             </button>
           </form>
         </div>
