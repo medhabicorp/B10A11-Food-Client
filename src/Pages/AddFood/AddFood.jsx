@@ -15,12 +15,12 @@ const AddFood = () => {
 
   const { isPending, mutateAsync } = useMutation({
     mutationFn: async (foodData) => {
-      await axiosInstance.post(`/all-foods`, foodData);
+      await axiosInstance.post("/all-foods", foodData);
     },
     onSuccess: () => {
       Swal.fire({
         title: "Food Added Successfully",
-        text: "You clicked the button!",
+        text: "You have Added Food Successfully!",
         icon: "success",
       });
     },

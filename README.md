@@ -14,7 +14,7 @@ The primary goal of Hero Meals is to reduce food waste and ensure that surplus f
 
 **GitHub Server Link:** [https://github.com/medhabicorp/B10A11-Food-Server]
 
-**Live Link:** []
+**Live Link:** [https://b10a11-food.web.app]
 
 🚀 Key Features
 ✅ User Authentication: Secure login and registration using Firebase authentication.
